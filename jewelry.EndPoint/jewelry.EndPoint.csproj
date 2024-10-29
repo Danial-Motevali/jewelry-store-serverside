@@ -14,6 +14,7 @@
     <ProjectReference Include="..\jewelry.Domain\jewelry.Domain.csproj" />
     <ProjectReference Include="..\jewelry.Application\jewelry.Application.csproj" />
     <ProjectReference Include="..\jewelry.Infrastructure\jewelry.Infrastructure.csproj" />
+    <ProjectReference Include="..\jewelry.Infectracture\jewelry.Infectracture.csproj" />
   </ItemGroup>
 
 </Project>
