@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\jewelry-store-serverside.props" />
-</Project>

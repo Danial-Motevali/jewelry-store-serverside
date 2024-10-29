@@ -1,6 +1,0 @@
-@jewelry_store_serverside_HostAddress = http://localhost:5289
-
-GET {{jewelry_store_serverside_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
