@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\jewelry-store-serverside.props" />
+</Project>
