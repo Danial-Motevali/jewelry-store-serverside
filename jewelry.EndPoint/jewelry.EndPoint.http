@@ -1,0 +1,6 @@
+@jewelry.EndPoint_HostAddress = http://localhost:5278
+
+GET {{jewelry.EndPoint_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
