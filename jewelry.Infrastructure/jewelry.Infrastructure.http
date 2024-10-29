@@ -1,0 +1,6 @@
+@jewelry.Infrastructure_HostAddress = http://localhost:5254
+
+GET {{jewelry.Infrastructure_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,6 @@
+@jewelry.Domain_HostAddress = http://localhost:5119
+
+GET {{jewelry.Domain_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
