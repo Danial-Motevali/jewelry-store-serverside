@@ -1,5 +1,5 @@
 
-namespace jewerly.SystemModel;
+namespace jewerly.Domain.SystemModel;
 
 public class City
 {

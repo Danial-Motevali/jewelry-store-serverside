@@ -15,5 +15,5 @@ public class Address
 
     public virtual Province Province { get; set; }
     public virtual City City { get; set; }
-    public virtual User User { get; set; }
+    public virtual ApplicationUser User { get; set; }
 }
