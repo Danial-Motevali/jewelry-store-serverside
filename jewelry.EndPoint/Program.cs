@@ -1,3 +1,8 @@
+using jewerly.Application.Service;
+using jewerly.Domain.Contract.Service;
+using jewerly.Infectracture.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +11,12 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddDbContext<ApplicationDbContext>(options => {
+    options.UseSqlite(builder.Configuration.GetConnectionString("sqlite"));
+});
+
+builder.Services.AddScoped<IUserService, userService>();
 
 var app = builder.Build();
 

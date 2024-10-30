@@ -5,7 +5,7 @@ namespace jewerly.Domain.Contract.Service;
 
 public interface IUserService
 {
-    ResultDto SignInUser();
-    ResultDto SignUpUser();
-    ResultDto UpdateUser();
+    ResultDto SignInUser(ApplicationUserLoginRequest request);
+    ResultDto SignUpUser(ApplicationUserRegisterRequest request);
+    ResultDto UpdateUser(ApplicationUserUpdateRequest request);
 }
