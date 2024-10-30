@@ -1,12 +1,13 @@
 using jewerly.Domain.Dtos;
 
-namespace jewerly.Domain.Contract.Repository;
+namespace jewelry.Domain.Contract.Repository;
 
 public interface IGenericRepository<T>
 {
-    SystemResultDto<T> GetById(int Id);
-    SystemResultDto<T> GetAll();
-    SystemResultDto<T> Insert(T input);
-    SystemResultDto<T> Delete(T input);
-    SystemResultDto<T> Update(T input);
+    T GetById(int Id);
+    List<T> GetAll();
+    void Insert(T input);
+    void Delete(T input);
+    void Update(T input);
+    int Save();
 }

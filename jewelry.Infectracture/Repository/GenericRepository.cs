@@ -1,35 +1,54 @@
 
-using jewerly.Domain.Contract.Repository;
+using jewelry.Domain.Contract.Repository;
 using jewerly.Domain.Dtos;
+using jewerly.Infectracture.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace jewerly.Infectracture.Repository;
 
 public class GenericRepository<T> : IGenericRepository<T> where T : class
 {
-    
+    private ApplicationDbContext _context;
+    private DbSet<T> _dbSet;
 
-    public SystemResultDto<T> Delete(T input)
+    public GenericRepository(ApplicationDbContext context)
     {
-        throw new NotImplementedException();
+        _context = context;
+        _dbSet = context.Set<T>();
     }
 
-    public SystemResultDto<T> GetAll()
+    public void Delete(T input)
     {
-        throw new NotImplementedException();
+        if(_context.Entry(input).State == EntityState.Detached){
+            _dbSet.Attach(input);
+        }
+
+        _dbSet.Remove(input);
     }
 
-    public SystemResultDto<T> GetById(int Id)
+    public List<T> GetAll()
     {
-        throw new NotImplementedException();
+        return _dbSet.ToList();
     }
 
-    public SystemResultDto<T> Insert(T input)
+    public T GetById(int Id)
     {
-        throw new NotImplementedException();
+        return _dbSet.Find(Id);
     }
 
-    public SystemResultDto<T> Update(T input)
+    public void Insert(T input)
     {
-        throw new NotImplementedException();
+        _dbSet.Add(input);
+    }
+
+    public int Save()
+    {
+        return _context.SaveChanges();
+    }
+
+    public void Update(T input)
+    {
+        _dbSet.Attach(input);
+        _context.Entry(input).State = EntityState.Modified;
     }
 }
