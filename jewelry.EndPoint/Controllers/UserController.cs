@@ -35,6 +35,6 @@ public class UserController : ControllerBase
     [Route("Update")]
     public IActionResult UpdateUser([FromBody] ApplicationUserUpdateRequest userRequest){
 
-        return Ok();
+        return Ok(_userService.UpdateUser(userRequest));
     }
 } 
