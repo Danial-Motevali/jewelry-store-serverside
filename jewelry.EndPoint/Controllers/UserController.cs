@@ -9,12 +9,15 @@ namespace jewelry.EndPoint.Controllers;
 public class UserController : ControllerBase
 {
     private readonly IUserService _userService;
+    private readonly IConfiguration _config;
     public UserController
     (
-        IUserService userService
+        IUserService userService,
+        IConfiguration configuration
     )
     {
         _userService = userService;
+        _config = configuration;
     }
 
     [HttpPost]
@@ -28,7 +31,7 @@ public class UserController : ControllerBase
     [Route("Login")]
     public IActionResult LoginUser([FromBody] ApplicationUserLoginRequest userInfo){
         
-        return Ok(_userService.SignInUser(userInfo));
+        return Ok(_userService.SignInUser(userInfo, _config));
     }
 
     [HttpPut]

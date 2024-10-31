@@ -1,6 +1,10 @@
+using jewelry.Domain.Contract.Repository;
+using jewelry.Infectracture.Repository;
 using jewerly.Application.Service;
 using jewerly.Domain.Contract.Service;
+using jewerly.Domain.SystemModel;
 using jewerly.Infectracture.Data;
+using jewerly.Infectracture.Repository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,6 +21,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => {
 });
 
 builder.Services.AddScoped<IUserService, userService>();
+
+builder.Services.AddScoped<IGenericRepository<ApplicationUser>, GenericRepository<ApplicationUser>>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 var app = builder.Build();
 

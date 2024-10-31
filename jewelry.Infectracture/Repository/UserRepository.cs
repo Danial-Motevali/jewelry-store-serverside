@@ -16,6 +16,11 @@ public class UserRepository : IUserRepository
         _context = context;
     }
 
+    public ApplicationUser FindUserByUserName(string username)
+    {
+        return _context.ApplicationUsers.Where(x => x.UserName == username).FirstOrDefault();
+    }
+
     public bool IsUserExisteByUserName(string username)
     {
         ApplicationUser? user = _context.ApplicationUsers.Where(x => x.UserName == username).FirstOrDefault();
