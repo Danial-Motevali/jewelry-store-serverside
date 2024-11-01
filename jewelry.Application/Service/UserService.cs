@@ -27,7 +27,7 @@ public class userService : IUserService
     {
         var result = new ResultDto();
 
-        ApplicationUser user = _userRepo.FindUserByUserName(request.Name);
+        ApplicationUser user = _userRepo.FindUserByFullName(request.FirstName, request.LastName);
 
         if(user == null)
             return result.Faild("Cant Sign in the User");
@@ -49,7 +49,7 @@ public class userService : IUserService
     {
         var result = new ResultDto();
 
-        bool IsUserExiste = _userRepo.IsUserExisteByUserName(request.Name);
+        bool IsUserExiste = _userRepo.IsUserExisteByUserName(request.FirstName, request.LastName);
         if(IsUserExiste)
             return result.Faild("you All ready have a Account");
 
@@ -58,7 +58,8 @@ public class userService : IUserService
         if(request.Password != request.RePassword)
             return result.Faild("Passwords are not like each other");
 
-        user.UserName = request.Name;
+        user.FirstName = request.FirstName;
+        user.LastName = request.LastName;
         user.EmailAddress = request.Email;
         user.Password = BCrypt.Net.BCrypt.HashPassword(request.Password);
         user.PhoneNUmber = request.PhoneNumber;

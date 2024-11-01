@@ -5,6 +5,6 @@ namespace jewelry.Domain.Contract.Repository;
 
 public interface IUserRepository
 {
-    public bool IsUserExisteByUserName(string username);
-    public ApplicationUser FindUserByUserName(string username);
+    public bool IsUserExisteByUserName(string firstName, string lastName);
+    public ApplicationUser FindUserByFullName(string firstName, string lastName);
 }
